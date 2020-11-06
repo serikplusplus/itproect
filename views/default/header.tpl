@@ -11,6 +11,8 @@
     </head>
     <body>
         {include file='nav.tpl'} 
+        
+        
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -33,37 +35,9 @@
             </div>
         </div>
     </div>
-    <div class="pushmenu pushmenu-left cart-box-container">
-        <div class="cart-list">
-            <span class="close-left js-close">x</span>
-            <h3 class="cart-title">Your Cart</h3>
- <div class="customer-page">
-                            <div class="title-page">
-                                <h3>Login</h3>
-                            </div>
-                            <form method="post" class="form-customer form-login">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Username or email address *</label>
-                                    <input type="email" class="form-control form-account" id="exampleInputEmail1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password *</label>
-                                    <input type="password" class="form-control form-account" id="exampleInputPassword1">
-                                </div>
-                                <div class="form-check">
-                                    <button type="submit" class="btn-login hover-white">Login</button>
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input">
-                                        <span>Remember me</span>
-                                    </label>
-                                    <a href="" class="lost-password">Lost your password?</a>
-                                </div>
-                            </form>
-                            <span class="divider"></span>
-                            <a href="" class="btn link-button create-account hover-black">Create an account</a>
-                        </div>
-        </div>
-    </div>
+      
+  {include file='user-menu.tpl'} 
+  
         <div class="wrappage">
             <header id="header" class="header-v5  home-simple">
             <div class="topbar">
