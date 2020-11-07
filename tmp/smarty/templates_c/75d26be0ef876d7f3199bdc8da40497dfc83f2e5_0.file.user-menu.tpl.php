@@ -1,4 +1,27 @@
-  <div class="pushmenu pushmenu-left cart-box-container">
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-11-07 12:07:04
+  from 'C:\xampp\htdocs\itproect\views\default\user-menu.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5fa67fd8ec3186_56432891',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '75d26be0ef876d7f3199bdc8da40497dfc83f2e5' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\user-menu.tpl',
+      1 => 1604747222,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5fa67fd8ec3186_56432891 (Smarty_Internal_Template $_smarty_tpl) {
+?>  <div class="pushmenu pushmenu-left cart-box-container">
         <div class="cart-list">
             <span class="close-left js-close">x</span>
             <h3 class="cart-title" style="margin-bottom: 20px;">Личный кабинет</h3>
@@ -53,3 +76,5 @@
                         </div>
         </div>
     </div>
+<?php }
+}

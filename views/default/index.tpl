@@ -62,9 +62,9 @@
             <h3 class="lookbook-title">Новые обьявления</h3>
             <div class="owl-carousel owl-theme js-owl-loobook">
                                  {foreach $rsProducts as $item name=products} 
-      <div class="item">
+      <div class="item" style="text-align: center;">
                     <div class="product-images">
-                        <a href="product/{$item['id']}/" class="hover-images effect"><img src="/images/products/{$item['image']}" alt="products"  height="186px" class="img-reponsive"></a>
+                        <a href="product/{$item['id']}/" class="hover-images effect"><img src="/images/products/{$item['image']}" alt="products"    height="200px"   class="img-reponsive"></a>
                  
                         <a href="#product/{$item['id']}/" class="btn-quickview">QUICK VIEW</a>
                     </div>

@@ -17,7 +17,7 @@
      
      <div class="col-md-15 col-sm-3 col-xs-6 product-item">
                             <div class="product-images">
-                                <a href="/product/{$item['id']}/" class="hover-images effect"><img src="/images/products/{$item['image']}" width="140px" height="186px" alt="photo" class="img-reponsive"></a>
+                                <a href="/product/{$item['id']}/" class="hover-images effect"><img src="/images/products/{$item['image']}"  height="200px" alt="photo" class="img-reponsive"></a>
                                 <a href="/product/{$item['id']}/" class="btn-quickview">QUICK VIEW</a>
                             </div>
                             <div class="product-info-ver2">

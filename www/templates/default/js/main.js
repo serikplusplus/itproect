@@ -1,27 +1,6 @@
 jQuery(document).ready(function($) {
     "use strict";
 
-    //menu change icon and dropdown
-    $(".js-menubar li .js-plus-icon").on("click", function() {
-        $(this).toggleClass('minus');
-        $(this).parent().find(".dropdown-menu").slideToggle(function() {
-            $(this).next().stop(true).toggleClass('open', $(this).is(":visible"));
-        });
-    });
-
-    $(".js-filter-menu li .js-plus-icon").on("click", function() {
-        $(this).toggleClass('minus');
-        $(this).parent().find(".filter-menu").slideToggle(function() {
-            $(this).next().stop(true).toggleClass('open', $(this).is(":visible"));
-        });
-    });
-
-    $(".js-faq .faq-content .js-plus-icon").on("click", function() {
-        $(this).toggleClass('minus');
-        $(this).parent().find(".faq-answer").slideToggle(function() {
-            $(this).next().stop(true).toggleClass('open', $(this).is(":visible"));
-        });
-    });
     // Open menu dropdown home 5
     $(".js-menubar > li > a").on("click", function() {
         $(this).toggleClass('active');
@@ -62,91 +41,7 @@ jQuery(document).ready(function($) {
         $('body').removeClass('pushmenu-push-toleft');
         menuHome6.removeClass('pushmenu-open');
     });
-    // SHOPPING CART Quantity increment buttons
 
-    var quantitiy = 0;
-    $('.js-plus').on("click", function(e) {
-
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        var quantity = parseInt($('.js-number').val(), 10);
-
-        // If is not undefined
-
-        $('.js-number').val(quantity + 1);
-
-
-        // Increment    
-    });
-
-    $('.js-minus').on("click", function(e) {
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        var quantity = parseInt($('.js-number').val(), 10);
-
-        // If is not undefined
-
-        // Increment
-        if (quantity > 0) {
-            $('.js-number').val(quantity - 1);
-        }
-    });
-
-    //SHOP LISTING FILTER
-    // Price Slider
-    if ($('.price-slider').length > 0) {
-        $('.price-slider').slider({
-            min: 100,
-            max: 700,
-            step: 10,
-            value: [100, 400],
-
-
-        });
-    }
-    //SHOP GRID
-    $(".view-mode .col").on("click", function() {
-        $(this).toggleClass('active');
-        $(".product-grid").removeClass("product-list");
-
-        $(".view-mode .list").removeClass("active");
-    });
-    $(".view-mode .list").on("click", function() {
-        $(this).toggleClass("active");
-        $(".product-grid").addClass("product-list");
-
-        $(".view-mode .col").removeClass("active");
-    });
-    // Open zipcode
-    $(".calculate").on('click', function() {
-        $(this).next().slideToggle();
-        $(this).toggleClass("active");
-    });
-    // Checkout : open login box
-    $(".js-showlogin").on('click', function() {
-        $(".js-openlogin").slideToggle();
-        $(this).toggleClass("active");
-    });
-    // Checkout : open coupon
-    $(".js-showcp").on('click', function() {
-        $(".js-opencp").slideToggle();
-        $(this).toggleClass("active");
-
-    });
-    //Open filter
-    $(".js-filter").on('click', function() {
-        $(".js-filter-open").show();
-
-    });
-    //Open filter
-    $(".js-close").on('click', function(e) {
-        e.preventDefault();
-        $(".js-filter-open").hide();
-        return false;
-    });
-    // Scroll slider
 
     $('.scroll-down').on('click', function() {
         $('html, body').animate({ scrollTop: $('section#main-content').offset().top }, 'slow');
@@ -200,121 +95,6 @@ jQuery(document).ready(function($) {
         asNavFor: '.js-click-product'
     });
 
-    // Js product single slider
-    $('.js-click-product-v2').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.js-product-slider-v2',
-        dots: false,
-        arrows: false,
-        focusOnSelect: true,
-        infinite: true
-    });
-    $('.js-product-slider-v2').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        asNavFor: '.js-click-product-v2'
-    });
-    // Js product single slider fw
-    $('.js-click-product-fw').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.js-product-slider-fw',
-        dots: false,
-        arrows: false,
-        focusOnSelect: true,
-
-    });
-    $('.js-product-slider-fw').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        asNavFor: '.js-click-product-fw'
-    });
-    // product carousel
-    $('.js-owl-product').owlCarousel({
-        margin: 30,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        loop: true,
-        nav: true,
-        navText: ["<span class='fa fa-angle-left'></span>", "<span class='fa fa-angle-right'></span>"],
-        responsive: {
-            0: {
-                items: 1
-            },
-            480: {
-                items: 2
-            },
-            1000: {
-                items: 5
-            }
-        }
-    });
-
-    // product list homebs
-    $('.js-owl-product-homebs').owlCarousel({
-        margin: 70,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        loop: true,
-        nav: false,
-        dots: false,
-        responsive: {
-            0: {
-                items: 1
-            },
-            480: {
-                items: 2
-            },
-            1000: {
-                items: 3
-            }
-        }
-    });
-    // Instagram carousel
-    $('.js-owl-instagram').owlCarousel({
-        margin: 0,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        loop: true,
-        nav: false,
-        navText: ["", ""],
-        dots: false,
-        responsive: {
-            0: {
-                items: 1
-            },
-            480: {
-                items: 2
-            },
-            1000: {
-                items: 5
-            }
-        }
-    });
-    $('.js-insta-blog').owlCarousel({
-        margin: 6,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        loop: true,
-        nav: true,
-        navText: ["<span class='fa fa-angle-left'></span>", "<span class='fa fa-angle-right'></span>"],
-        dots: false,
-        responsive: {
-            0: {
-                items: 1
-            },
-            480: {
-                items: 2
-            },
-            1000: {
-                items: 4
-            }
-        }
-    });
-    // Slider category full-width
     $('.js-click-slider').slick({
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -356,75 +136,7 @@ jQuery(document).ready(function($) {
         slidesToScroll: 1,
         autoplaySpeed: 4000
     });
-    //Slider fullw
-    $('.js-fullw').slick({
-        autoplay: true,
-        dots: true,
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
 
-        customPaging: function(slider, i) {
-            var thumb = $(slider.$slides[i]).data();
-            return '<a>' + (i + 1) + '</a>';
-        },
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    dots: false
-                }
-            }
-
-        ]
-    });
-    // Slider home category
-    $('.js-homecate').slick({
-        dots: true,
-        arrows: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    });
-    // Slider home Clean
-    $('.js-homeclean-slider').slick({
-        dots: true,
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    });
-
-    // brand carousel
-    $('.js-owl-category').owlCarousel({
-        loop: true,
-        nav: true,
-        navText: ["", ""],
-        dots: false,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 2
-            },
-            768: {
-                items: 3
-            },
-            1000: {
-                items: 5
-            }
-        }
-    });
     // Js home lookbook
     $('.js-owl-loobook').owlCarousel({
         autoplayTimeout: 3000,
@@ -448,38 +160,6 @@ jQuery(document).ready(function($) {
             }
         }
     });
-    // Js home clean blog
-    $('.js-owl-blog').owlCarousel({
-        loop: true,
-        margin: 30,
-        nav: true,
-        navText: ["<span class='fa fa-angle-left'></span>", "<span class='fa fa-angle-right'></span>"],
-        dots: false,
-        responsive: {
-            0: {
-                items: 1
-            },
-            568: {
-                items: 2
-            },
-            768: {
-                items: 3
-            },
-            1000: {
-                items: 3
-            }
-        }
-    });
-    
-    // js quickview
-    $('.js-quickview').slick({
-        dots: true,
-        infinite: true,
-        arrows: true,
-        speed: 300,
-        slidesToShow: 1
-    });
-
     // sticky scroll
     if ($(".single-product-detail").hasClass("engoc-product-design-sticky")) {
     var s, o, i = $(".entry-summary"),

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-06 13:30:27
+/* Smarty version 3.1.34-dev-7, created on 2020-11-06 20:07:01
   from 'C:\xampp\htdocs\itproect\views\default\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fa541e3c009c6_54663989',
+  'unifunc' => 'content_5fa59ed5ee74e5_18544083',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3bca6b1c5816435eb075b8b353a70c5af4ad1fd2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\index.tpl',
-      1 => 1604665823,
+      1 => 1604689619,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fa541e3c009c6_54663989 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fa59ed5ee74e5_18544083 (Smarty_Internal_Template $_smarty_tpl) {
 ?>  <div class="slider-homesimple">
             <div class="container container-42">
                 <div class="row">
@@ -69,11 +69,11 @@ $_smarty_tpl->tpl_vars['item']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 $_smarty_tpl->tpl_vars['item']->do_else = false;
 ?> 
-      <div class="item">
+      <div class="item" style="text-align: center;">
                     <div class="product-images">
                         <a href="product/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 /" class="hover-images effect"><img src="/images/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['image'];?>
-" alt="products"  height="186px" class="img-reponsive"></a>
+" alt="products"    height="200px"   class="img-reponsive"></a>
                  
                         <a href="#product/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 /" class="btn-quickview">QUICK VIEW</a>
