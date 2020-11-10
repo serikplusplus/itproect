@@ -6,7 +6,6 @@
  */
 
 include_once '../models/CategoriesModel.php'; //модели категорий
-include_once '../models/OrdersModel.php'; //модели для работы с заказами
 include_once '../models/UsersModel.php'; //модели пользователя
 
 
@@ -30,7 +29,7 @@ function registerAction() {
     $adress = isset($_REQUEST['adress']) ? $_REQUEST['adress'] : null;
     
     
-    $resData = null;
+    $resData = null; //массив статуса обработки
     $resData = checkRegisterParams($email,$password1,$password2);
     
     
@@ -60,4 +59,70 @@ function registerAction() {
             $resData['message']="Ошибка регистрации";
         }
     }
+    
+    echo json_encode($resData);
+}
+
+/**
+ * Выход пользователя
+ * 
+ */
+function logoutAction() {
+    if(isset($_SESSION['user']))
+    {
+        unset($_SESSION['user']);
+    }
+    
+    redirect('/');
+}
+
+/**
+ * 
+ * Ajax авторизация пользователя
+ * 
+ * @return array - массив данных пользователя
+ * 
+ */
+function loginAction() {
+    $email = isset($_REQUEST['loginEmail']) ? $_REQUEST['loginEmail'] : null;
+    $email = trim($email);
+    
+    $password = isset($_REQUEST['loginPassword']) ? $_REQUEST['loginPassword'] : null;
+    $password = trim($password);
+    
+    $userData = loginUser($email,$password);
+    if($userData['success'])
+    {
+        $userData = $userData[0];
+        $_SESSION['user'] = $userData;
+        $_SESSION['user']['displayName'] = $userData['name'] ? $userData['name'] : $userData['email'];
+        $resData =  $_SESSION['user'];
+        $resData['success'] = 1;
+    }
+     else{ 
+            $resData['success']=0;
+            $resData['message']="Неверный логин или пароль";
+        }
+        
+     echo json_encode($resData);
+}
+
+/**
+ * 
+ * Формирование страници личных данных пользователя
+ * 
+ * @param type $smarty
+ */
+function settingsAction($smarty) {
+    if(!isset($_SESSION['user']))
+    {
+        redirect('/');
+    }
+    $rsCategories = getAllMainCatsWithChildren(); 
+    $smarty->assign('pageTitle','Cosso');
+    $smarty->assign('rsCategories',$rsCategories);
+    
+    loadTemplate($smarty,'header');
+    loadTemplate($smarty,'user-settings');
+    loadTemplate($smarty,'footer');
 }

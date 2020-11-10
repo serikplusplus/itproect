@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-06 13:27:52
+/* Smarty version 3.1.34-dev-7, created on 2020-11-10 10:38:22
   from 'C:\xampp\htdocs\itproect\views\default\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fa54148735b55_32107025',
+  'unifunc' => 'content_5faa5f8ee52714_80357804',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f50470c826afeba8664b115596dfacece599f242' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\footer.tpl',
-      1 => 1604665666,
+      1 => 1605000918,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fa54148735b55_32107025 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5faa5f8ee52714_80357804 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
     <footer>
         <div class="container container-42">
@@ -81,6 +81,9 @@ function content_5fa54148735b55_32107025 (Smarty_Internal_Template $_smarty_tpl)
 >
     <?php echo '<script'; ?>
  type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/sweetalert2@10"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  type="text/javascript" src="/<?php echo $_smarty_tpl->tpl_vars['templateWebPath']->value;?>

@@ -55,6 +55,7 @@
  <a href="#" class="scroll_top">SCROLL TO TOP<span></span></a>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript" src="/{$templateWebPath}js/bootstrap.js"></script>
     <script type="text/javascript" src="/{$templateWebPath}js/slick.min.js"></script>
     <script type="text/javascript" src="/{$templateWebPath}js/owl.carousel.min.js"></script>

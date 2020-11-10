@@ -1,6 +1,121 @@
 jQuery(document).ready(function($) {
     "use strict";
 
+$('.click-create').on("click", function(event) {
+    event.preventDefault();
+    $('.login').fadeOut();
+    $('.register').fadeIn();
+});
+
+$('.click-login').on("click", function(event) {
+    event.preventDefault();
+    $('.login').fadeIn();
+    $('.register').fadeOut();
+    
+});
+
+
+$('#logout').on("click", function(event) {
+   document.location.href = '/user/logout/';
+    $('.login').fadeIn();
+    $('.register').fadeOut();
+    $('.userBox').fadeOut();
+});
+
+//Получение данных с формы
+function getData(obj_form)
+{
+    var hData = {};
+    $('input, textarea, select', obj_form).each(function()
+            {
+                if((this.name && this.value) != "")
+                {
+                    hData[this.name] = this.value;
+                    console.log('hData['+this.name+'] = ' + hData[this.name]);
+                }
+               
+            });
+    return hData;
+}
+
+$('.registerNewUser').on("click", function(evt)
+{
+    evt.preventDefault();
+    var postData = getData('.register');
+    $.ajax({
+        type:'POST',
+        async:false,
+        url:"/user/register/",
+        data: postData,
+        dataType: 'json',
+        success:function(data)
+        {
+            if(data['success'])
+            {
+               Swal.fire({
+                     position: 'top-end',
+                    icon: 'success',
+                    title: data['message'],
+                  })
+                
+                $('.register').fadeOut();
+                $('.login').fadeOut();
+                $('#userLink').attr('href','/user/');
+                $('.userBox').fadeIn();
+            }
+            else{
+                Swal.fire({
+                     position: 'top-end',
+                    icon: 'error',
+                    title: data['message'],
+                  })
+                 
+            }
+        }
+    });
+    
+ });
+ 
+ 
+ 
+//Авторизация пользователя
+ $('.loginUser').on("click", function(evt)
+{
+    evt.preventDefault();
+    var email = $('#loginEmail').val();
+    var password = $('#loginPassword').val();
+
+    var postData = "loginEmail="+email+"&loginPassword="+password;
+    
+     $.ajax({
+        type:'POST',
+        async:false,
+        url:"/user/login/",
+        data: postData,
+        dataType: 'json',
+        success:function(data)
+        {
+            if(data['success'])
+            {
+                $('.register').fadeOut();
+                $('.login').fadeOut();
+                $('#userLink').attr('href','/user/');
+                $('.userBox').fadeIn();
+            }
+            else{
+                Swal.fire({
+                     position: 'top-end',
+                    icon: 'error',
+                    title: data['message'],
+                  })
+                 
+            }
+        }
+    });
+});
+ 
+ 
+ 
     // Open menu dropdown home 5
     $(".js-menubar > li > a").on("click", function() {
         $(this).toggleClass('active');

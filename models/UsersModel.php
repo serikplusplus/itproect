@@ -21,10 +21,10 @@
 function registerNewUser($email,$name,$passwordMD5,$phone,$adress) {
     require '../config/db.php';
     //Проверки на вредоностные символы
-    $email = htmlspecialchars(mysqli_real_escape_string($email));
-    $name = htmlspecialchars(mysqli_real_escape_string($name));
-    $phone = htmlspecialchars(mysqli_real_escape_string($email));
-    $adress = htmlspecialchars(mysqli_real_escape_string($adress));
+    $email = htmlspecialchars(mysqli_real_escape_string($db,$email));
+    $name = htmlspecialchars(mysqli_real_escape_string($db,$name));
+    $phone = htmlspecialchars(mysqli_real_escape_string($db,$phone));
+    $adress = htmlspecialchars(mysqli_real_escape_string($db,$adress));
     
     //Добавление пользователя
     $sql ="INSERT INTO users (`email`,`password`,`name`,`phone`,`adress`) "
@@ -105,10 +105,37 @@ function checkRegisterParams($email,$password1,$password2) {
  */
 function checkUserEmail($email) {
     require '../config/db.php';
-    $email = mysqli_real_escape_string($email);
+    $email = mysqli_real_escape_string($db,$email);
     $sql = "SELECT id FROM users WHERE email= '{$email}'";
     $rs = mysqli_query($db,$sql);
     $rs = createSmartyRsArray($rs);
+    
+    return $rs;
+}
+
+
+/**
+ * 
+ * Авторизация пользователя
+ * 
+ * @param string $email
+ * @param string $password
+ * @return array - массив пользователя
+ */
+function loginUser($email,$password) {
+    require '../config/db.php';
+    $email = mysqli_real_escape_string($db,$email);
+    $password = md5($password);
+    $sql = "SELECT * FROM users WHERE (`email`= '{$email}' and `password`='{$password}') LIMIT 1";
+    $rs = mysqli_query($db,$sql);
+    $rs = createSmartyRsArray($rs);
+    if(isset($rs[0]))
+    {
+        $rs['success'] = 1;
+    }
+    else{
+        $rs['success'] = 0;
+    }
     
     return $rs;
 }
