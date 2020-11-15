@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 
  * Файл основных функций
@@ -11,16 +12,14 @@
  * @param string $controllerName - название контроллера
  * @param string $actionName - функция обработки страницы
  */
-function loadPage($smarty,$controllerName, $actionName = 'index')
-{
+function loadPage($smarty, $controllerName, $actionName = 'index') {
     //подключаем контроллер 
-    include_once PathPrefix.$controllerName.PathPostfix;
+    include_once PathPrefix . $controllerName . PathPostfix;
     // формирование названия вызываемой функции
-    $function = $actionName.'Action';
+    $function = $actionName . 'Action';
     // вызов исполняемой функции
     $function($smarty);
 }
-
 
 /**
  * Загрузка шаблона
@@ -28,10 +27,9 @@ function loadPage($smarty,$controllerName, $actionName = 'index')
  * @param object $smarty - шаблонизатор
  * @param string $templateName - имя загружаемого файла
  */
-function loadTemplate($smarty,$templateName) {
-    $smarty->display($templateName.TemplatePostfix);
+function loadTemplate($smarty, $templateName) {
+    $smarty->display($templateName . TemplatePostfix);
 }
-
 
 /**
  * Функуция отладки. Выводит значение переменной $value на екран и завершает работу программы 
@@ -43,7 +41,8 @@ function dbg($value = null, $die = 1) {
     echo 'Debug:<br><pre>';
     print_r($value);
     echo '</pre>';
-    if($die) die;
+    if ($die)
+        die;
 }
 
 /**
@@ -54,16 +53,16 @@ function dbg($value = null, $die = 1) {
  * @return array $smartyRs - массив пунктов меню
  */
 function createSmartyRsArray($rs) {
-    
-    if(!$rs) return false;
+
+    if (!$rs)
+        return false;
     $smartyRs = array();
-       //запись ответов в $smartyRs
-   while ($row = mysqli_fetch_assoc($rs))
-   {
-       $smartyRs[] = $row;
-   }
-   
-   return $smartyRs;
+    //запись ответов в $smartyRs
+    while ($row = mysqli_fetch_assoc($rs)) {
+        $smartyRs[] = $row;
+    }
+
+    return $smartyRs;
 }
 
 /**
@@ -73,6 +72,7 @@ function createSmartyRsArray($rs) {
  * @param string $url - адресс перенаправления
  */
 function redirect($url) {
-    if(!$url) $url='/';
+    if (!$url)
+        $url = '/';
     header("Location: {$url}");
 }

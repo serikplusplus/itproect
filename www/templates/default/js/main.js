@@ -1,125 +1,152 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     "use strict";
 
-$('.click-create').on("click", function(event) {
-    event.preventDefault();
-    $('.login').fadeOut();
-    $('.register').fadeIn();
-});
 
-$('.click-login').on("click", function(event) {
-    event.preventDefault();
-    $('.login').fadeIn();
-    $('.register').fadeOut();
-    
-});
+    $('.click-create').on("click", function (event) {
+        event.preventDefault();
+        $('.login').fadeOut();
+        $('.register').fadeIn();
+    });
+
+    $('.click-login').on("click", function (event) {
+        event.preventDefault();
+        $('.login').fadeIn();
+        $('.register').fadeOut();
+
+    });
 
 
-$('#logout').on("click", function(event) {
-   document.location.href = '/user/logout/';
-    $('.login').fadeIn();
-    $('.register').fadeOut();
-    $('.userBox').fadeOut();
-});
+    $('#logout').on("click", function (event) {
+        document.location.href = '/user/logout/';
+        $('.login').fadeIn();
+        $('.register').fadeOut();
+        $('.userBox').fadeOut();
+    });
 
 //Получение данных с формы
-function getData(obj_form)
-{
-    var hData = {};
-    $('input, textarea, select', obj_form).each(function()
+    function getData(obj_form)
+    {
+        var hData = {};
+        $('input, textarea, select', obj_form).each(function ()
+        {
+            if ((this.name && this.value) != "")
             {
-                if((this.name && this.value) != "")
+                hData[this.name] = this.value;
+                //console.log('hData[' + this.name + '] = ' + hData[this.name]);
+            }
+
+        });
+        return hData;
+    }
+
+    $('.registerNewUser').on("click", function (evt)
+    {
+        evt.preventDefault();
+        var postData = getData('#registerUser');
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: "/user/register/",
+            data: postData,
+            dataType: 'json',
+            success: function (data)
+            {
+                if (data['success'])
                 {
-                    hData[this.name] = this.value;
-                    console.log('hData['+this.name+'] = ' + hData[this.name]);
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+
+                    $('.register').fadeOut();
+                    $('.login').fadeOut();
+                    $('.userBox').fadeIn();
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
                 }
-               
-            });
-    return hData;
-}
+            }
+        });
 
-$('.registerNewUser').on("click", function(evt)
-{
-    evt.preventDefault();
-    var postData = getData('.register');
-    $.ajax({
-        type:'POST',
-        async:false,
-        url:"/user/register/",
-        data: postData,
-        dataType: 'json',
-        success:function(data)
-        {
-            if(data['success'])
-            {
-               Swal.fire({
-                     position: 'top-end',
-                    icon: 'success',
-                    title: data['message'],
-                  })
-                
-                $('.register').fadeOut();
-                $('.login').fadeOut();
-                $('#userLink').attr('href','/user/');
-                $('.userBox').fadeIn();
-            }
-            else{
-                Swal.fire({
-                     position: 'top-end',
-                    icon: 'error',
-                    title: data['message'],
-                  })
-                 
-            }
-        }
     });
-    
- });
- 
- 
- 
+
+
+
 //Авторизация пользователя
- $('.loginUser').on("click", function(evt)
-{
-    evt.preventDefault();
-    var email = $('#loginEmail').val();
-    var password = $('#loginPassword').val();
-
-    var postData = "loginEmail="+email+"&loginPassword="+password;
-    
-     $.ajax({
-        type:'POST',
-        async:false,
-        url:"/user/login/",
-        data: postData,
-        dataType: 'json',
-        success:function(data)
-        {
-            if(data['success'])
+    $('.loginUser').on("click", function (evt)
+    {
+        evt.preventDefault();
+        var postData = getData('#loginUser');
+        
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: "/user/login/",
+            data: postData,
+            dataType: 'json',
+            success: function (data)
             {
-                $('.register').fadeOut();
-                $('.login').fadeOut();
-                $('#userLink').attr('href','/user/');
-                $('.userBox').fadeIn();
+                if (data['success'])
+                {
+                    $('.register').fadeOut();
+                    $('.login').fadeOut();
+                    $('.userBox').fadeIn();
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
             }
-            else{
-                Swal.fire({
-                     position: 'top-end',
-                    icon: 'error',
-                    title: data['message'],
-                  })
-                 
-            }
-        }
+        });
     });
-});
- 
- 
- 
+
+
+//Изминение данных пользователя
+ $('.updateUser').on("click", function (evt)
+    {
+        evt.preventDefault();
+        var postData = getData('#updateUser');
+        console.log(postData);
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: "/user/update/",
+            data: postData,
+            dataType: 'json',
+            success: function (data)
+            {
+                if (data['success'])
+                {
+                     Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+                    
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
+            }
+        });
+    });
+
     // Open menu dropdown home 5
-    $(".js-menubar > li > a").on("click", function() {
+    $(".js-menubar > li > a").on("click", function () {
         $(this).toggleClass('active');
-        $(this).parent().find(".js-open-menu").slideToggle(function() {
+        $(this).parent().find(".js-open-menu").slideToggle(function () {
             $(this).next().stop(true).toggleClass('open', $(this).is(":visible"));
         });
     });
@@ -128,42 +155,42 @@ $('.registerNewUser').on("click", function(evt)
     var menuHome6 = $('.menu-home5');
     var nav_list = $('.topbar-account');
     var nav_click = $('.icon-pushmenu');
-    nav_list.on("click", function(event) {
+    nav_list.on("click", function (event) {
         event.stopPropagation();
         $(this).toggleClass('active');
         $('body').toggleClass('pushmenu-push-toright-cart');
         menuLeft.toggleClass('pushmenu-open');
         $(".container").toggleClass("canvas-container");
     });
-    nav_click.on("click", function(event) {
+    nav_click.on("click", function (event) {
         event.stopPropagation();
         $(this).toggleClass('active');
         $('body').toggleClass('pushmenu-push-toleft');
         menuHome6.toggleClass('pushmenu-open');
     });
-    $(".wrappage").on("click", function() {
+    $(".wrappage").on("click", function () {
         $(this).removeClass('active');
         $('body').removeClass('pushmenu-push-toright-cart').removeClass('pushmenu-push-toleft');
         menuLeft.removeClass('pushmenu-open');
         menuHome6.removeClass('pushmenu-open');
     });
-    $(".close-left").on("click", function() {
+    $(".close-left").on("click", function () {
         $(this).removeClass('active');
         $('body').removeClass('pushmenu-push-toright-cart');
         menuLeft.removeClass('pushmenu-open');
     });
-    $(".close-left").on("click", function() {
+    $(".close-left").on("click", function () {
         $('body').removeClass('pushmenu-push-toleft');
         menuHome6.removeClass('pushmenu-open');
     });
 
 
-    $('.scroll-down').on('click', function() {
-        $('html, body').animate({ scrollTop: $('section#main-content').offset().top }, 'slow');
+    $('.scroll-down').on('click', function () {
+        $('html, body').animate({scrollTop: $('section#main-content').offset().top}, 'slow');
         return false;
     });
     // Scroll to TOP
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.scroll_top').fadeIn();
         } else {
@@ -171,13 +198,13 @@ $('.registerNewUser').on("click", function(evt)
         }
     });
 
-    $('.scroll_top').on('click', function() {
+    $('.scroll_top').on('click', function () {
         $("html, body").animate({
             scrollTop: 0
         }, 600);
         return false;
     });
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         var scroll = $(window).scrollTop();
 
         if (scroll > 500) {
@@ -186,7 +213,7 @@ $('.registerNewUser').on("click", function(evt)
         }
     });
     // scroll down
-    $(".scroll_down").on('click', function(e) {
+    $(".scroll_down").on('click', function (e) {
         e.preventDefault();
         $(".intro").hide();
         $(this).hide();
@@ -217,7 +244,7 @@ $('.registerNewUser').on("click", function(evt)
         dots: false,
         arrows: false,
         focusOnSelect: true,
-        afterChange: function(slickSlider, i) {
+        afterChange: function (slickSlider, i) {
             //remove all active class
             $('.js-click-slider .slick-slide').removeClass('slick-active');
             //set active class for current slide
@@ -233,10 +260,10 @@ $('.registerNewUser').on("click", function(evt)
         arrows: false,
         asNavFor: '.js-click-slider'
     });
-    $('.js-click-slider').on('mouseenter', '.slick-slide', function(e) {
+    $('.js-click-slider').on('mouseenter', '.slick-slide', function (e) {
         var $currTarget = $(e.currentTarget),
-            index = $currTarget.data('slick-index'),
-            slickObj = $('.js-slider').slick('getSlick');
+                index = $currTarget.data('slick-index'),
+                slickObj = $('.js-slider').slick('getSlick');
 
         slickObj.slickGoTo(index);
 
@@ -277,59 +304,67 @@ $('.registerNewUser').on("click", function(evt)
     });
     // sticky scroll
     if ($(".single-product-detail").hasClass("engoc-product-design-sticky")) {
-    var s, o, i = $(".entry-summary"),
-        n = i.find(".summary-inner"),
-        r = i.width(),
-        l = $(".product-images"),
-        c = l.find(".shopify-product-gallery__wrapper a"),
-        d = $(window).height(),
-        u = l.outerHeight(),
-        p = 130,
-        h = 600,
-        m = i.outerHeight(),
-        f = $(window).scrollTop(),
-        g = l.offset().top,
-        v = i.offset().left + 15,
-        w = g + u,
-        b = f + p + m;
-        i.css({ height: m }),
-        $(window).resize(function() {
-            d = $(window).height(),
-                m = i.outerHeight(),
-                u = l.outerHeight(),
-                m < d - p ? i.addClass("in-viewport").removeClass("not-in-viewport") : i.removeClass("in-viewport").addClass("not-in-viewport"), f = $(window).scrollTop(),
-                b = f + p + m,
+        var s, o, i = $(".entry-summary"),
+                n = i.find(".summary-inner"),
                 r = i.width(),
-                v = i.offset().left + 15,
+                l = $(".product-images"),
+                c = l.find(".shopify-product-gallery__wrapper a"),
+                d = $(window).height(),
+                u = l.outerHeight(),
+                p = 130,
+                h = 600,
+                m = i.outerHeight(),
+                f = $(window).scrollTop(),
                 g = l.offset().top,
-                w = g + u, r > h && (v += o = (r - h) / 2),
-                f + p >= g ? (i.addClass("block-sticked"),
-                    n.css({ top: p, width: r, position: "fixed", transform: "translateY(-20px)" })) : (i.removeClass("block-sticked"),
-                    n.css({ top: "auto", left: "auto", width: "auto", position: "relative", transform: "translateY(0px)" })),
-                b > w ? i.addClass("hide-temporary") : i.removeClass("hide-temporary"), d = $(window).height(),
-                c.each(function() { s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images")) })
-        }),
-        $(window).scroll(function() {
+                v = i.offset().left + 15,
+                w = g + u,
+                b = f + p + m;
+        i.css({height: m}),
+                $(window).resize(function () {
             d = $(window).height(),
-                c.each(function() { s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images")) })
+                    m = i.outerHeight(),
+                    u = l.outerHeight(),
+                    m < d - p ? i.addClass("in-viewport").removeClass("not-in-viewport") : i.removeClass("in-viewport").addClass("not-in-viewport"), f = $(window).scrollTop(),
+                    b = f + p + m,
+                    r = i.width(),
+                    v = i.offset().left + 15,
+                    g = l.offset().top,
+                    w = g + u, r > h && (v += o = (r - h) / 2),
+                    f + p >= g ? (i.addClass("block-sticked"),
+                            n.css({top: p, width: r, position: "fixed", transform: "translateY(-20px)"})) : (i.removeClass("block-sticked"),
+                    n.css({top: "auto", left: "auto", width: "auto", position: "relative", transform: "translateY(0px)"})),
+                    b > w ? i.addClass("hide-temporary") : i.removeClass("hide-temporary"), d = $(window).height(),
+                    c.each(function () {
+                        s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images"))
+                    })
+        }),
+                $(window).scroll(function () {
+            d = $(window).height(),
+                    c.each(function () {
+                        s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images"))
+                    })
 
             f = $(window).scrollTop(),
-                b = f + p + m,
-                r = i.width(),
-                v = i.offset().left + 15,
-                g = l.offset().top,
-                w = g + u, r > h && (v += o = (r - h) / 2),
-                f + p >= g ? (i.addClass("block-sticked"),
-                    n.css({ top: p, width: r, position: "fixed", transform: "translateY(-20px)" })) : (i.removeClass("block-sticked"),
-                    n.css({ top: "auto", left: "auto", width: "auto", position: "relative", transform: "translateY(0px)" })),
-                b > w ? i.addClass("hide-temporary") : i.removeClass("hide-temporary")
+                    b = f + p + m,
+                    r = i.width(),
+                    v = i.offset().left + 15,
+                    g = l.offset().top,
+                    w = g + u, r > h && (v += o = (r - h) / 2),
+                    f + p >= g ? (i.addClass("block-sticked"),
+                            n.css({top: p, width: r, position: "fixed", transform: "translateY(-20px)"})) : (i.removeClass("block-sticked"),
+                    n.css({top: "auto", left: "auto", width: "auto", position: "relative", transform: "translateY(0px)"})),
+                    b > w ? i.addClass("hide-temporary") : i.removeClass("hide-temporary")
 
             d = $(window).height(),
-                m = i.outerHeight(),
-                u = l.outerHeight(),
-                m < d - p ? i.addClass("in-viewport").removeClass("not-in-viewport") : i.removeClass("in-viewport").addClass("not-in-viewport"), d = $(window).height(),
-                c.each(function() { s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images")) }), d = $(window).height(),
-                c.each(function() { s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images")) })
+                    m = i.outerHeight(),
+                    u = l.outerHeight(),
+                    m < d - p ? i.addClass("in-viewport").removeClass("not-in-viewport") : i.removeClass("in-viewport").addClass("not-in-viewport"), d = $(window).height(),
+                    c.each(function () {
+                        s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images"))
+                    }), d = $(window).height(),
+                    c.each(function () {
+                        s = $(this).offset().top, f > s - d + 20 && ($(this).addClass("animate-images"))
+                    })
         })
     }
 

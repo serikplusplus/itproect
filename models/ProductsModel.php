@@ -13,17 +13,17 @@
  * @param int $limit - количесто елементов
  * @return array
  */
-function getLastProducts(/*$limit = null*/){
-     require '../config/db.php';
-     $sql = "SELECT * FROM `products` ORDER BY id DESC"; 
-     
-     /*if($limit)
-     {
-         $sql."LIMIT {$limit}";
-     }*/
-   //ответ от базы
-   $rs = mysqli_query($db,$sql);
-   return createSmartyRsArray($rs);
+function getLastProducts(/* $limit = null */) {
+    //require '../config/db.php';
+    $sql = "SELECT * FROM `products` ORDER BY id DESC";
+
+    /* if($limit)
+      {
+      $sql."LIMIT {$limit}";
+      } */
+    //ответ от базы
+    $rs = mysqli_query($GLOBALS['db'], $sql);
+    return createSmartyRsArray($rs);
 }
 
 /**
@@ -35,17 +35,16 @@ function getLastProducts(/*$limit = null*/){
  * 
  */
 function getProductsByCat($catId) {
-     require '../config/db.php';
-     
-     $catId = intval($catId);
-     
-     $sql = "SELECT * FROM products WHERE category_id = {$catId} ORDER BY id DESC"; 
-      //ответ от базы
-     $rs = mysqli_query($db,$sql);
-     
-     return createSmartyRsArray($rs);
-}
+    //require '../config/db.php';
 
+    $catId = intval($catId);
+
+    $sql = "SELECT * FROM products WHERE category_id = {$catId} ORDER BY id DESC";
+    //ответ от базы
+    $rs = mysqli_query($GLOBALS['db'], $sql);
+
+    return createSmartyRsArray($rs);
+}
 
 /**
  * 
@@ -56,12 +55,12 @@ function getProductsByCat($catId) {
  * 
  */
 function getProductById($itemId) {
-     require '../config/db.php';
-     
-     $itemId = intval($itemId);
-     
-     $sql = "SELECT * FROM products WHERE id = {$itemId}"; 
-      //ответ от базы
-     $rs = mysqli_query($db,$sql);
-     return mysqli_fetch_assoc($rs);
+    //require '../config/db.php';
+
+    $itemId = intval($itemId);
+
+    $sql = "SELECT * FROM products WHERE id = {$itemId}";
+    //ответ от базы
+    $rs = mysqli_query($GLOBALS['db'], $sql);
+    return mysqli_fetch_assoc($rs);
 }

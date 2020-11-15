@@ -12,7 +12,7 @@ $dbPassword = "";
 
 //Соединение с БД
 $db = mysqli_connect($dbLocation,$dbUser,$dbPassword);
-
+$GLOBALS['db'] = $db;
 //Если нет подключения с MySQL
 if(!$db)
 {
