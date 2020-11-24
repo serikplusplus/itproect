@@ -24,9 +24,13 @@ function indexAction($smarty) {
 
     loadTemplate($smarty, 'adminHeader');
     loadTemplate($smarty, 'adminIndex');
-    loadTemplate($smarty, 'adminFooter');
 }
 
+/**
+ * 
+ * Добавление новой категории
+ * 
+ */
 function addnewcatAction() {
 
     $catName = isset($_POST['setNewCategoriName']) ? $_POST['setNewCategoriName'] : null;
@@ -62,5 +66,49 @@ function categoriesAction($smarty) {
 
     loadTemplate($smarty, 'adminHeader');
     loadTemplate($smarty, 'adminCategory');
-    loadTemplate($smarty, 'adminFooter');
+}
+
+/**
+ * 
+ * Изминение категории
+ * 
+ */
+function updatecategoriesAction() {
+
+    $itemId = $_POST['itemId'];
+    $parentId = $_POST['parentId'];
+    $newName = $_POST['newName'];
+    
+    $res = updateCategoryDate($itemId,$parentId,$newName);
+    
+     if ($res) {
+        $resData['success'] = 1;
+        $resData['message'] = "Категория обновлена";
+    } else {
+        $resData['success'] = 0;
+        $resData['message'] = "Ошибка обновления категории";
+    }
+    
+    
+    echo json_encode($resData);
+    return;
+}
+
+/**
+ * Формирование страницы продуктов админки
+ * 
+ * @param object $smarty - шаблонизатор
+ */
+function productAction($smarty) {
+
+    $rsCategories = getAllCategories();
+    $rsProducts = getProducts();
+    
+    
+    
+    $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('rsProducts', $rsProduct);
+
+    loadTemplate($smarty, 'adminHeader');
+    loadTemplate($smarty, 'adminCategory');
 }
