@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-13 17:39:56
+/* Smarty version 3.1.34-dev-7, created on 2020-11-20 17:02:04
   from 'C:\xampp\htdocs\itproect\views\default\user-menu.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5faeb6dc670986_83764385',
+  'unifunc' => 'content_5fb7e87c311674_99651335',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '75d26be0ef876d7f3199bdc8da40497dfc83f2e5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\user-menu.tpl',
-      1 => 1605284694,
+      1 => 1605888121,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5faeb6dc670986_83764385 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fb7e87c311674_99651335 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="pushmenu pushmenu-left cart-box-container">
     <div class="cart-list">
         <span class="close-left js-close">x</span>
@@ -32,6 +32,7 @@ function content_5faeb6dc670986_83764385 (Smarty_Internal_Template $_smarty_tpl)
                     <h3>Личный кабинет</h3>
                 </div>
                 <a href="/user/settings/" class="btn link-button create-account hover-black ">Личные данные</a>
+                <a href="/product/newproduct/" class="btn link-button create-account hover-black ">Выложить товар</a>
                 <a href="/user/logout/" class="btn link-button create-account hover-black" id="logout">Выход</a>
             </div>
         <?php } else { ?>
@@ -40,6 +41,7 @@ function content_5faeb6dc670986_83764385 (Smarty_Internal_Template $_smarty_tpl)
                     <h3>Личный кабинет</h3>
                 </div>
                 <a href="/user/settings/" class="btn link-button create-account hover-black ">Личные данные</a>
+                <a href="/product/newproduct/" class="btn link-button create-account hover-black ">Выложить товар</a>
                 <a href="/user/logout/" class="btn link-button create-account hover-black " id="logout">Выход</a>
             </div>
 

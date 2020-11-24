@@ -24,6 +24,22 @@ function getChildrenForCat($cartId) {
 
 /**
  * 
+ * Функция получения дочерних пунктов меню
+ * 
+ * @param  $db - подключение к базе данных
+ * @param int $cartId - id родительского пункта меню
+ * @return array $childreRs - массив дочерних пунктов
+ */
+function getChildrenCat() {
+    //require '../config/db.php';
+    $sql = "SELECT * FROM categories WHERE parent_id > 0";
+    $rs = mysqli_query($GLOBALS['db'], $sql);
+
+    return createSmartyRsArray($rs);
+}
+
+/**
+ * 
  * Функция получения всех родительских пунктов категорий товаров c привязкой дочерних
  * @return array $smartyRs - массив категорий
  */
@@ -127,4 +143,27 @@ function setCat($catName, $parentId = 0) {
 
 
     return $resData;
+}
+
+
+/**
+ * 
+ * Обновление категорий
+ * 
+ * @param int $itemId - Id категории
+ * @param int $parentId - ID родителя
+ * @param string $newName - новое название
+ */
+function updateCategoryDate($itemId, $parentId = -1, $newName = '') {
+    $set = array();
+    
+    if($newName) $set[]="`name` = '{$newName}'";
+    if($parentId > -1) $set[]="`parent_id` = '{$parentId}'";
+    
+    $setStr = implode($set, ", ");
+    
+    $sql = "UPDATE categories SET {$setStr} WHERE id = '{$itemId}'";
+    $rs = mysqli_query($GLOBALS['db'], $sql);
+    
+    return $rs;
 }

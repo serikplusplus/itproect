@@ -64,3 +64,60 @@ function getProductById($itemId) {
     $rs = mysqli_query($GLOBALS['db'], $sql);
     return mysqli_fetch_assoc($rs);
 }
+
+/**
+ * 
+ * Получение всех товаров
+ * 
+ * @return type
+ */
+function getProducts() {
+
+    $sql = "SELECT * FROM products ORDER BY category_id";
+    //ответ от базы
+    $rs = mysqli_query($GLOBALS['db'], $sql);
+    return createSmartyRsArray($rs);
+}
+
+/**
+ * 
+ * Добавление продукта
+ * 
+ * @param string $itemName - название нового продукта
+ * @param int $itemPrice - цена
+ * @param string $itemDesc - описание
+ * @param int $itemCat - категория
+ *
+ */
+function insertProduct($itemName, $itemPrice, $itemDesc, $itemCat) {
+    
+    $res = null;
+    
+    if ($itemName && $itemPrice && $itemDesc && ($itemCat>0)) {
+        $f = $_FILES['filename']['name'];
+        return $f;
+        $sql = "INSERT INTO products SET `name`='{$itemName}',`price`='{$itemPrice}',`description`='{$itemDesc}',`category_id`='{$itemCat}'";
+        $rs = mysqli_query($GLOBALS['db'], $sql);
+        $res['success'] = 1;
+    }
+    else{
+        if(!$itemName){
+            $res['success'] = 0;
+            $res['message'] = "Название товара пусто";
+        }
+        else if(!$itemPrice){
+            $res['success'] = 0;
+            $res['message'] = "Цена пусто";
+        }
+         else if(!$itemDesc){
+            $res['success'] = 0;
+            $res['message'] = "Описание пусто";
+        }
+         else if($itemCat<0){
+            $res['success'] = 0;
+            $res['message'] = "Категория пусто";
+        }
+    }
+
+    return $res;
+}

@@ -9,6 +9,7 @@
                     <h3>Личный кабинет</h3>
                 </div>
                 <a href="/user/settings/" class="btn link-button create-account hover-black ">Личные данные</a>
+                <a href="/product/newproduct/" class="btn link-button create-account hover-black ">Выложить товар</a>
                 <a href="/user/logout/" class="btn link-button create-account hover-black" id="logout">Выход</a>
             </div>
         {else}
@@ -17,6 +18,7 @@
                     <h3>Личный кабинет</h3>
                 </div>
                 <a href="/user/settings/" class="btn link-button create-account hover-black ">Личные данные</a>
+                <a href="/product/newproduct/" class="btn link-button create-account hover-black ">Выложить товар</a>
                 <a href="/user/logout/" class="btn link-button create-account hover-black " id="logout">Выход</a>
             </div>
 

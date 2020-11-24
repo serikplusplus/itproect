@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="col-md-5 col-xs-12">
                                     <label>Название</label>
-                                    <input type="edit" name="itemName_{$item['id']}" class="form-control" value="{$item['name']}">
+                                    <input type="edit" name="itemName_{$item['id']}" id="itemName_{$item['id']}" class="form-control" value="{$item['name']}">
                                 </div>
                                 <div class="col-md-5 col-xs-12">
                                     <label>Родительская категория</label>
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                                    <button class="btn btn-submit ver2" onclick="updateCat({$item['id']});" >Сохранить</button>
+                                    <button class="btn btn-submit ver2" onclick="updateCat({$item['id']})" >Сохранить</button>
                     </div>
                 </div>
             </div>

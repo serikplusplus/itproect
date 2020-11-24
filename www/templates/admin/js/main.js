@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-    "use strict";
+    
     $(".js-menubar li .js-plus-icon").on("click", function () {
         $(this).toggleClass('minus');
         $(this).parent().find(".dropdown-menu").slideToggle(function () {
@@ -66,4 +66,78 @@ jQuery(document).ready(function ($) {
     });
     
     
+    //Обновление категорий
+ function updateCat(itemId)
+    {
+       var parentId = $('#parentId_'+ itemId).val();
+       var newName = $('#itemName_'+ itemId).val();
+       var postDate = {itemId: itemId,parentId:parentId,newName:newName};
+       
+       
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: "/admin/updatecategory/",
+            data: postData,
+            dataType: 'json',
+            success: function (data)
+            {
+                if (data['success'])
+                {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
+            }
+        });
+
+    }
+    
+    
 });
+
+
+//Обновление категории
+function updateCat(itemId)
+    {
+       var parentId = $('#parentId_'+ itemId).val();
+       var newName = $('#itemName_'+ itemId).val();
+       var postData = {itemId: itemId,parentId:parentId,newName:newName};
+       
+       
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: "/admin/updatecategories/",
+            data: postData,
+            dataType: 'json',
+            success: function (data)
+            {
+                if (data['success'])
+                {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
+            }
+        });
+
+    };

@@ -1,6 +1,19 @@
 jQuery(document).ready(function ($) {
     "use strict";
 
+    $('#foto-upload').on("click", function () {
+        $('#real-file').click();
+    });
+    $('#real-file').change(function () {
+        if($('#real-file').val())
+        {
+            $('#foto-upload').text($('#real-file').val().replace(/^.*[\\\/]/, ''));
+        }
+        else{
+             $('#foto-upload').innerHTML = "Выберите файл";
+        }
+    });
+    
 
     $('.click-create').on("click", function (event) {
         event.preventDefault();
@@ -109,12 +122,13 @@ jQuery(document).ready(function ($) {
     });
 
 
+
 //Изминение данных пользователя
  $('.updateUser').on("click", function (evt)
     {
         evt.preventDefault();
         var postData = getData('#updateUser');
-        console.log(postData);
+        
         $.ajax({
             type: 'POST',
             async: false,
@@ -130,6 +144,46 @@ jQuery(document).ready(function ($) {
                         icon: 'success',
                         title: data['message'],
                     })
+                    
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
+            }
+        });
+    });
+    
+    //Добавление нового товара
+ $('.addNewProduct').on("click", function (evt)
+    {
+        evt.preventDefault();
+        var postData = getData('#addProduct');
+        var d = $('#real-file').prop('files')[0];
+        console.log(d);
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: "/product/addproduct/",
+            data: postData,
+            dataType: 'json',
+            success: function (data)
+            {
+                if (data['success'])
+                {
+                     Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+                    
+                    $('#itemName').val('');
+                    $('#itemPrice').val('');
+                    $('#itemCat').val('');
+                    $('#itemDesc').val('');
                     
                 } else {
                     Swal.fire({
