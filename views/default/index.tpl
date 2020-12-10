@@ -4,31 +4,24 @@
             <div class="col-sm-12 col-lg-10 col-lg-offset-1">
                 <div class="text-center js-homesimple-slider">
                     <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
+                        <img src="images/g1.jpg" alt="" class="img-responsive">
                         <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
+                            <h3>До -50% на все товары</h3>
+                            <a href="">Смотреть</a>
                         </div>
                     </div>
                     <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
+                        <img src="images/g2.jpg" alt="" class="img-responsive">
                         <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
+                            <h3>1 грн за доставку</h3>
+                            <a href="">Смотреть</a>
                         </div>
                     </div>
                     <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
+                        <img src="images/g3.jpg" alt="" class="img-responsive">
                         <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
-                        </div>
-                    </div>
-                    <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
-                        <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
+                            <h3>Кредит со скидками</h3>
+                            <a href="">Смотреть</a>
                         </div>
                     </div>
                 </div>
@@ -50,12 +43,12 @@
                 <div class="product-info-ver2">
                     <h3 class="product-title"><a href="product/{$item['id']}/">{$item['name']}</a></h3>
                     <div class="product-after-switch">
-                        <div class="product-price">{$item['price']}</div>
+                        <div class="product-price">₴{$item['price']}</div>
                         <div class="product-after-button">
 
                         </div>
                     </div>
-                    <div class="product-price">{$item['price']}</div>
+                    <div class="product-price">₴{$item['price']}</div>
                 </div>
             </div>
         {/foreach}

@@ -60,13 +60,17 @@ function registerNewUser($email, $name, $passwordMD5, $phone, $adress) {
  * @param string $password2 - повтор пароля
  * @return array - результат
  */
-function checkRegisterParams($email, $password1, $password2) {
+function checkRegisterParams($email, $password1, $password2,$name) {
 
     $res = null;
 
     if (!$email) {
         $res['success'] = false;
         $res['message'] = 'Введите email';
+    }
+    if (!$name) {
+        $res['success'] = false;
+        $res['message'] = 'Введите ФИО';
     }
     if (!$password1) {
         $res['success'] = false;
@@ -164,4 +168,17 @@ function updateUserData($name, $password1, $password2, $curpassword, $phone, $ad
     $rs = mysqli_query($db, $sql);
 
     return $rs ;
+}
+
+/**
+ * 
+ * Получение имени продаца
+ * 
+ * @param int $id - id товара
+ * @return type
+ */
+function getNameSeller($id) {
+    $sql = "SELECT * FROM users WHERE id = '{$id}' LIMIT 1";
+    $rs = mysqli_query($GLOBALS['db'], $sql);
+    return mysqli_fetch_assoc($rs);
 }

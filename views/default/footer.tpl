@@ -5,17 +5,17 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                 <div class="menu-footer">
                     <ul>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Условия пользования</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                 <div class="newletter-form">
-                    <h3 class="footer-title text-center">Newsletter</h3>
+                    <h3 class="footer-title text-center">Подписаться</h3>
                     <form action="#">
-                        <input type="text" name="s" placeholder="Email Adress..." class="form-control">
+                        <input type="text" name="s" placeholder="Email ..." class="form-control">
                             <button type="submit" class="btn btn-submit" >
                                 <svg width="20" height="20" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                      viewBox="0 0 512.002 512.002" style="enable-background:new 0 0 512.002 512.002;" xml:space="preserve">
@@ -52,7 +52,7 @@
     </div>
 </footer>
 </div>       
-<a href="#" class="scroll_top">SCROLL TO TOP<span></span></a>
+<a href="#" class="scroll_top">Вверх<span></span></a>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

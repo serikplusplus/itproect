@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-15 11:38:17
+/* Smarty version 3.1.34-dev-7, created on 2020-12-10 17:13:24
   from 'C:\xampp\htdocs\itproect\views\default\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb105198caa20_40454958',
+  'unifunc' => 'content_5fd24924cb3d57_26860198',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f50470c826afeba8664b115596dfacece599f242' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\footer.tpl',
-      1 => 1605436686,
+      1 => 1607616782,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fb105198caa20_40454958 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd24924cb3d57_26860198 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <footer>
     <div class="container container-42">
@@ -28,17 +28,17 @@ function content_5fb105198caa20_40454958 (Smarty_Internal_Template $_smarty_tpl)
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                 <div class="menu-footer">
                     <ul>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Условия пользования</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                 <div class="newletter-form">
-                    <h3 class="footer-title text-center">Newsletter</h3>
+                    <h3 class="footer-title text-center">Подписаться</h3>
                     <form action="#">
-                        <input type="text" name="s" placeholder="Email Adress..." class="form-control">
+                        <input type="text" name="s" placeholder="Email ..." class="form-control">
                             <button type="submit" class="btn btn-submit" >
                                 <svg width="20" height="20" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                      viewBox="0 0 512.002 512.002" style="enable-background:new 0 0 512.002 512.002;" xml:space="preserve">
@@ -75,7 +75,7 @@ function content_5fb105198caa20_40454958 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 </footer>
 </div>       
-<a href="#" class="scroll_top">SCROLL TO TOP<span></span></a>
+<a href="#" class="scroll_top">Вверх<span></span></a>
 <?php echo '<script'; ?>
  type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"><?php echo '</script'; ?>
 >

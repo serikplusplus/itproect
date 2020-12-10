@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-13 15:51:14
+/* Smarty version 3.1.34-dev-7, created on 2020-11-26 20:51:05
   from 'C:\xampp\htdocs\itproect\views\default\nav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fae9d627d2100_32002036',
+  'unifunc' => 'content_5fc007293d9d01_47505280',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fce4ee8aac7ba49d4ed2838c0229e78e09da908c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\nav.tpl',
-      1 => 1605278911,
+      1 => 1606420263,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fae9d627d2100_32002036 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fc007293d9d01_47505280 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="pushmenu menu-home5">
     <div class="menu-push">
         <span class="close-left js-close"><i class="icon-close f-20"></i></span>

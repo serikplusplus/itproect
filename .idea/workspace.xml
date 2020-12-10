@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="da5071ce-2e12-4ffa-b0f3-04c301bd0a84" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ProductsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/ProductsModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/UsersModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UsersModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/2693abe5b636aa1310019fe29e617a66810ecbd5_0.file.category.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/2693abe5b636aa1310019fe29e617a66810ecbd5_0.file.category.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/32e0a7a13c0715efd0718746e5f1287e6997dac2_0.file.header.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/32e0a7a13c0715efd0718746e5f1287e6997dac2_0.file.header.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/3bca6b1c5816435eb075b8b353a70c5af4ad1fd2_0.file.index.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/3bca6b1c5816435eb075b8b353a70c5af4ad1fd2_0.file.index.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/7232c3f8e80e4881c58ad4c073916143fe42156f_0.file.product.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/7232c3f8e80e4881c58ad4c073916143fe42156f_0.file.product.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/75d26be0ef876d7f3199bdc8da40497dfc83f2e5_0.file.user-menu.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/75d26be0ef876d7f3199bdc8da40497dfc83f2e5_0.file.user-menu.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/81d91b84fd8abb036ee4239e65f773d55a471d70_0.file.empty.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/81d91b84fd8abb036ee4239e65f773d55a471d70_0.file.empty.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/f50470c826afeba8664b115596dfacece599f242_0.file.footer.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/f50470c826afeba8664b115596dfacece599f242_0.file.footer.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/fa41049929f06e142aa8f6a9962772fb8a4bf776_0.file.new-product.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/fa41049929f06e142aa8f6a9962772fb8a4bf776_0.file.new-product.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/smarty/templates_c/fce4ee8aac7ba49d4ed2838c0229e78e09da908c_0.file.nav.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/smarty/templates_c/fce4ee8aac7ba49d4ed2838c0229e78e09da908c_0.file.nav.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/category.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/category.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/empty.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/empty.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/footer.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/footer.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/header.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/header.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/new-product.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/new-product.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/product.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/product.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/default/user-menu.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/default/user-menu.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/images/products/f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/default/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/default/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/default/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/default/js/main.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="1lNmFaBA0Ad9ltyBntjAMUuXCTm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da5071ce-2e12-4ffa-b0f3-04c301bd0a84" name="Default Changelist" comment="" />
+      <created>1607445819810</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607445819810</updated>
+      <workItem from="1607445824619" duration="625000" />
+      <workItem from="1607616564522" duration="624000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

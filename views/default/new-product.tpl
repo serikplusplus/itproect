@@ -31,9 +31,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
-                                    <label>Фото</label>
-                                    
-                                    <input class="form-control" id="real-file" type="file" name="filename" style="display: none;">
+                                    <label>Фото(до 3 фото)</label>                                   
+                                    <input class="form-control" id="real-file" type="file" multiple name="filename" style="display: none;">
                                     <span class="form-span" id="foto-upload">Выберите файл</span>
                                     
                                 </div>

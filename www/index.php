@@ -9,6 +9,7 @@ include_once '../library/mainFunction.php'; //основные функции
 
 if (isset($_SESSION['user'])) {
     $smarty->assign('arUser', $_SESSION['user']);
+    $smarty->assign('arUserId', $_SESSION['user']['id']);
 }
 
 //определяем контроллер для работы

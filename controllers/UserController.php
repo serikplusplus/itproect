@@ -28,7 +28,7 @@ function registerAction() {
 
 
     $resData = null; //массив статуса обработки
-    $resData = checkRegisterParams($email, $password1, $password2);
+    $resData = checkRegisterParams($email, $password1, $password2,$name);
 
 
     if (!$resData && checkUserEmail($email)) {

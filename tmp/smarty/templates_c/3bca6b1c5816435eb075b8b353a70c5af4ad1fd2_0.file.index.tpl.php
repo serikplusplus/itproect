@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-13 17:43:04
+/* Smarty version 3.1.34-dev-7, created on 2020-11-27 17:45:22
   from 'C:\xampp\htdocs\itproect\views\default\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5faeb798a56a43_98028702',
+  'unifunc' => 'content_5fc12d2202c1d1_63303248',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3bca6b1c5816435eb075b8b353a70c5af4ad1fd2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\index.tpl',
-      1 => 1605285782,
+      1 => 1606495518,
       2 => 'file',
     ),
   ),
@@ -20,38 +20,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5faeb798a56a43_98028702 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fc12d2202c1d1_63303248 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="slider-homesimple">
     <div class="container container-42">
         <div class="row">
             <div class="col-sm-12 col-lg-10 col-lg-offset-1">
                 <div class="text-center js-homesimple-slider">
                     <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
+                        <img src="images/g1.jpg" alt="" class="img-responsive">
                         <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
+                            <h3>До -50% на все товары</h3>
+                            <a href="">Смотреть</a>
                         </div>
                     </div>
                     <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
+                        <img src="images/g2.jpg" alt="" class="img-responsive">
                         <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
+                            <h3>1 грн за доставку</h3>
+                            <a href="">Смотреть</a>
                         </div>
                     </div>
                     <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
+                        <img src="images/g3.jpg" alt="" class="img-responsive">
                         <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
-                        </div>
-                    </div>
-                    <div class="slider-img ">
-                        <img src="images/homesimple_1.jpg" alt="" class="img-responsive">
-                        <div class="slider-content text-center">
-                            <h3>Mid Season Sale </h3>
-                            <a href="">Explorer Now</a>
+                            <h3>Кредит со скидками</h3>
+                            <a href="">Смотреть</a>
                         </div>
                     </div>
                 </div>
@@ -84,13 +77,13 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 /"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 </a></h3>
                     <div class="product-after-switch">
-                        <div class="product-price"><?php echo $_smarty_tpl->tpl_vars['item']->value['price'];?>
+                        <div class="product-price">₴<?php echo $_smarty_tpl->tpl_vars['item']->value['price'];?>
 </div>
                         <div class="product-after-button">
 
                         </div>
                     </div>
-                    <div class="product-price"><?php echo $_smarty_tpl->tpl_vars['item']->value['price'];?>
+                    <div class="product-price">₴<?php echo $_smarty_tpl->tpl_vars['item']->value['price'];?>
 </div>
                 </div>
             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-15 11:02:48
+/* Smarty version 3.1.34-dev-7, created on 2020-12-10 17:15:15
   from 'C:\xampp\htdocs\itproect\views\default\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb0fcc8e5a1d0_86226465',
+  'unifunc' => 'content_5fd24993af4404_62809057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '32e0a7a13c0715efd0718746e5f1287e6997dac2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\header.tpl',
-      1 => 1605434566,
+      1 => 1607616913,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:user-menu.tpl' => 1,
   ),
 ),false)) {
-function content_5fb0fcc8e5a1d0_86226465 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd24993af4404_62809057 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>
     <head>
         <title><?php echo $_smarty_tpl->tpl_vars['pageTitle']->value;?>
@@ -47,7 +47,7 @@ css/style.css" type="text/css"/>
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">SEARCH HERE</h4>
+                        <h4 class="modal-title">Поиск товаров</h4>
                     </div>
                     <div class="modal-body">
                         <div class="input-group">

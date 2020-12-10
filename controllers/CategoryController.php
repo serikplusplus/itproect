@@ -18,16 +18,34 @@ function indexAction($smarty) {
     $catId = isset($_GET['id']) ? $_GET['id'] : null;
     if ($catId == null)
         exit();
-
     $rsCat = getCatById($catId);
 
-    $rsProducts = getProductsByCat($catId);
 
+    $paginator = array();
+    $paginator['perPage'] = 15;// лимит товаров на страницы
+    $paginator['currentPage'] = isset($_GET['page']) ? $_GET['page'] : 1;//получение номера страницы
+    $paginator['offset'] = 0;//смешение товаров в поиске
+    $paginator['link'] = '/category/' . $catId . '/?page=';//ссылка пагинатора
+
+    list($rsProducts, $allCnt) = getProductsByCat($catId, $paginator['offset'], $paginator['perPage']);
+    $paginator['pageCnt'] = ceil($allCnt / $paginator['perPage']);//максимальное число страниц
+
+    if ($paginator['currentPage'] < 0)
+        $paginator['currentPage'] = 1;
+    if ($paginator['currentPage'] > $paginator['pageCnt'])
+        $paginator['currentPage'] = $paginator['pageCnt'];
+    $paginator['offset'] = ($paginator['currentPage'] * $paginator['perPage']) - $paginator['perPage'];
+    list($rsProducts, $allCnt) = getProductsByCat($catId, $paginator['offset'], $paginator['perPage']);
+
+    
+    
     $rsCategories = getAllMainCatsWithChildren();
     $smarty->assign('pageTitle', 'Cosso');
     $smarty->assign('catTitle', $rsCat['name']);
     $smarty->assign('rsProducts', $rsProducts); //продукты выбраной категории
     $smarty->assign('rsCategories', $rsCategories);
+    $smarty->assign('paginator', $paginator);
+
 
     if ($rsProducts) {
         loadTemplate($smarty, 'header');
@@ -39,6 +57,3 @@ function indexAction($smarty) {
         loadTemplate($smarty, 'footer');
     }
 }
-
-
-

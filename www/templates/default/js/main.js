@@ -4,16 +4,40 @@ jQuery(document).ready(function ($) {
     $('#foto-upload').on("click", function () {
         $('#real-file').click();
     });
+    $('#foto-upload2').on("click", function () {
+        $('#real-file2').click();
+    });
+    $('#foto-upload3').on("click", function () {
+        $('#real-file3').click();
+    });
+    
     $('#real-file').change(function () {
-        if($('#real-file').val())
+        if ($('#real-file').val())
         {
             $('#foto-upload').text($('#real-file').val().replace(/^.*[\\\/]/, ''));
-        }
-        else{
-             $('#foto-upload').innerHTML = "Выберите файл";
+        } else {
+            $('#foto-upload').innerHTML = "Выберите файл";
         }
     });
     
+     $('#real-file2').change(function () {
+        if ($('#real-file2').val())
+        {
+            $('#foto-upload2').text($('#real-file2').val().replace(/^.*[\\\/]/, ''));
+        } else {
+            $('#foto-upload2').innerHTML = "Выберите файл";
+        }
+    });
+    
+     $('#real-file3').change(function () {
+        if ($('#real-file3').val())
+        {
+            $('#foto-upload3').text($('#real-file3').val().replace(/^.*[\\\/]/, ''));
+        } else {
+            $('#foto-upload3').innerHTML = "Выберите файл";
+        }
+    });
+
 
     $('.click-create').on("click", function (event) {
         event.preventDefault();
@@ -95,7 +119,7 @@ jQuery(document).ready(function ($) {
     {
         evt.preventDefault();
         var postData = getData('#loginUser');
-        
+
         $.ajax({
             type: 'POST',
             async: false,
@@ -124,11 +148,11 @@ jQuery(document).ready(function ($) {
 
 
 //Изминение данных пользователя
- $('.updateUser').on("click", function (evt)
+    $('.updateUser').on("click", function (evt)
     {
         evt.preventDefault();
         var postData = getData('#updateUser');
-        
+
         $.ajax({
             type: 'POST',
             async: false,
@@ -139,12 +163,12 @@ jQuery(document).ready(function ($) {
             {
                 if (data['success'])
                 {
-                     Swal.fire({
+                    Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: data['message'],
                     })
-                    
+
                 } else {
                     Swal.fire({
                         position: 'top-end',
@@ -156,35 +180,73 @@ jQuery(document).ready(function ($) {
             }
         });
     });
-    
+
     //Добавление нового товара
- $('.addNewProduct').on("click", function (evt)
+    $('.addNewProduct').on("click", function (evt)
     {
         evt.preventDefault();
         var postData = getData('#addProduct');
-        var d = $('#real-file').prop('files')[0];
-        console.log(d);
+        var file_data1 = $('#real-file').prop('files')[0];
+        var file_data2 = $('#real-file').prop('files')[1];
+        var file_data3 = $('#real-file').prop('files')[2];
+        var formData = new FormData();
+        formData.append('filename1', file_data1);
+        formData.append('filename2', file_data2);
+        formData.append('filename3', file_data3);
         $.ajax({
             type: 'POST',
-            async: false,
+            async: true,
             url: "/product/addproduct/",
             data: postData,
+            cache: false,
             dataType: 'json',
             success: function (data)
             {
                 if (data['success'])
                 {
-                     Swal.fire({
+
+                    Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: data['message'],
                     })
-                    
+
                     $('#itemName').val('');
                     $('#itemPrice').val('');
                     $('#itemCat').val('');
                     $('#itemDesc').val('');
-                    
+
+
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
+            }
+        });
+
+        $.ajax({
+            type: 'POST',
+            async: true,
+            cache: false,
+            processData: false,
+            contentType: false,
+            url: "/product/uploadnew/",
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+                if (data['success'])
+                {
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+
                 } else {
                     Swal.fire({
                         position: 'top-end',
@@ -196,6 +258,102 @@ jQuery(document).ready(function ($) {
             }
         });
     });
+
+
+    $('.updateProduct').on("click", function (evt)
+    {
+        evt.preventDefault();
+        var postData = getData('#changeProduct');
+        var file_data1 = $('#real-file').prop('files')[0];
+        var file_data2 = $('#real-file2').prop('files')[0];
+        var file_data3 = $('#real-file3').prop('files')[0];
+        var formData = new FormData();
+        formData.append('filename1', file_data1);
+        formData.append('filename2', file_data2);
+        formData.append('filename3', file_data3);
+        formData.append('itemId', postData['itemId']);
+        $.ajax({
+            type: 'POST',
+            async: true,
+            url: "/product/productchange/",
+            data: postData,
+            cache: false,
+            dataType: 'json',
+            success: function (data)
+            {
+                if (data['success'])
+                {
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
+            }
+        });
+
+        $.ajax({
+            type: 'POST',
+            async: true,
+            cache: false,
+            processData: false,
+            contentType: false,
+            url: "/product/upload/",
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+                if (data)
+                {
+                     document.location.href = '/product/changeproduct/' + postData['itemId'] + '/';
+
+                } 
+            }
+        });
+    });
+
+
+  $('.deleteProduct').on("click", function (evt)
+    {
+        evt.preventDefault();
+        var postData = getData('#changeProduct');
+        $.ajax({
+            type: 'POST',
+            async: true,
+            url: "/product/deleteproduct/",
+            data: postData,
+            cache: false,
+            dataType: 'json',
+            success: function (data)
+            {
+                if (data['success'])
+                {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: data['message'],
+                    })
+                    
+                    document.location.href = '/product/myproduct/';
+                } else {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data['message'],
+                    })
+
+                }
+            }
+        });
+    });
+
 
     // Open menu dropdown home 5
     $(".js-menubar > li > a").on("click", function () {

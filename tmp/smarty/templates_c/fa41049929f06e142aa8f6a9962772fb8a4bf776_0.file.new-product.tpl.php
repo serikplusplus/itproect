@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-11-20 19:51:58
+/* Smarty version 3.1.34-dev-7, created on 2020-11-24 14:29:28
   from 'C:\xampp\htdocs\itproect\views\default\new-product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fb8104e3e4751_73576460',
+  'unifunc' => 'content_5fbd0ab845d290_89241259',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fa41049929f06e142aa8f6a9962772fb8a4bf776' => 
     array (
       0 => 'C:\\xampp\\htdocs\\itproect\\views\\default\\new-product.tpl',
-      1 => 1605898196,
+      1 => 1606224562,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fb8104e3e4751_73576460 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fbd0ab845d290_89241259 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="main-content space-padding-tb-70">
     <div class="container">
         <div class="row">
@@ -63,9 +63,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     </select>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
-                                    <label>Фото</label>
-                                    
-                                    <input class="form-control" id="real-file" type="file" name="filename" style="display: none;">
+                                    <label>Фото(до 3 фото)</label>                                   
+                                    <input class="form-control" id="real-file" type="file" multiple name="filename" style="display: none;">
                                     <span class="form-span" id="foto-upload">Выберите файл</span>
                                     
                                 </div>
